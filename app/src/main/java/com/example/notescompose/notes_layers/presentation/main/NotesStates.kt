@@ -1,6 +1,6 @@
 package com.example.notescompose.notes_layers.presentation.main
 
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 import com.example.notescompose.notes_layers.domain.utils.NoteOrder
 import com.example.notescompose.notes_layers.domain.utils.OrderType
 
@@ -10,7 +10,7 @@ import com.example.notescompose.notes_layers.domain.utils.OrderType
  */
 
 data class NotesStates(
-    val notes: List<NoteItem> = emptyList(),
+    val notes: List<Note> = emptyList(),
     val noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     val isOrderSectionVisible: Boolean = false
 )

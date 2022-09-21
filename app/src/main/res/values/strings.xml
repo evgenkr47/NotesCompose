@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NotesCompose</string>
+    <string name="title_main">NotesCompose</string>
+
 </resources>

@@ -1,7 +1,7 @@
 package com.example.notescompose.notes_layers.domain.use_cases
 
 import com.example.notescompose.notes_layers.domain.models.InvalidNoteException
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 import com.example.notescompose.notes_layers.domain.repository.NotesRepository
 import javax.inject.Inject
 
@@ -14,15 +14,15 @@ class AddNoteUseCase @Inject constructor(
 ) {
 
     @Throws(InvalidNoteException::class)
-    suspend operator fun invoke(noteItem: NoteItem){
-        if (noteItem.title.isBlank()){
+    suspend operator fun invoke(note: Note){
+        if (note.title.isBlank()){
             throw InvalidNoteException("The title of the note can't be empty")
         }
-        if (noteItem.content.isBlank()){
+        if (note.content.isBlank()){
             throw InvalidNoteException("The content of the note can't be empty")
         }
         else {
-            repository.insertNote(noteItem)
+            repository.insertNote(note)
         }
     }
 }

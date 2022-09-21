@@ -2,11 +2,11 @@ package com.example.notescompose.notes_layers.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 
 
 @Database(
-    entities = [NoteItem::class],
+    entities = [Note::class],
     version = 1
 )
 abstract class NotesDatabase: RoomDatabase()  {

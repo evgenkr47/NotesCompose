@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 import com.example.notescompose.notes_layers.domain.use_cases.AddNoteUseCase
 import com.example.notescompose.notes_layers.domain.use_cases.DeleteNoteUseCase
 import com.example.notescompose.notes_layers.domain.use_cases.GetNotesListUseCase
@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(
     private val _state = mutableStateOf(NotesStates())
     var state: State<NotesStates> = _state
 
-    private var recentlyDeleteNote: NoteItem? = null
+    private var recentlyDeleteNote: Note? = null
 
     private var getNotesJob: Job? = null
 
@@ -50,8 +50,8 @@ class MainViewModel @Inject constructor(
             }
             is NotesEvent.DeleteNote -> {
                 viewModelScope.launch {
-                    deleteNoteUseCase(event.noteItem)
-                    recentlyDeleteNote = event.noteItem
+                    deleteNoteUseCase(event.note)
+                    recentlyDeleteNote = event.note
                 }
             }
 

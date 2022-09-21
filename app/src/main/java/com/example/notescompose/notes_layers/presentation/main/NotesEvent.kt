@@ -1,6 +1,6 @@
 package com.example.notescompose.notes_layers.presentation.main
 
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 import com.example.notescompose.notes_layers.domain.utils.NoteOrder
 
 /**
@@ -13,7 +13,7 @@ import com.example.notescompose.notes_layers.domain.utils.NoteOrder
 
 sealed class NotesEvent {
     data class Order(val noteOrder: NoteOrder): NotesEvent()
-    data class DeleteNote(val noteItem: NoteItem): NotesEvent()
+    data class DeleteNote(val note: Note): NotesEvent()
     object RestoreNote: NotesEvent()
     object ToggleOrderSection: NotesEvent()
 

@@ -1,14 +1,14 @@
 package com.example.notescompose.notes_layers.domain.repository
 
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 import kotlinx.coroutines.flow.Flow
 
 interface NotesRepository {
-    fun getNotesList(): Flow<List<NoteItem>>
+    fun getNotesList(): Flow<List<Note>>
 
-    suspend fun getNoteById(id: Int): NoteItem?
+    suspend fun getNoteById(id: Int): Note?
 
-    suspend fun insertNote(noteItem: NoteItem)
+    suspend fun insertNote(note: Note)
 
-    suspend fun deleteNote(noteItem: NoteItem)
+    suspend fun deleteNote(note: Note)
 }

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.example.notescompose.ui.theme.*
 
 @Entity(tableName = "note_table")
-data class NoteItem(
+data class Note(
     val title: String,
     val content: String,
     val add_time: Long,

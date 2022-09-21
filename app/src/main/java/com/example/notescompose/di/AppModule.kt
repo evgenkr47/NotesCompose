@@ -16,12 +16,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface AppModule {
+object AppModule {
 
 
-    @Binds
-    @Singleton
-    fun bindRepository(impl: NotesRepositoryImpl):NotesRepository
+
 
     @Provides
     @Singleton
@@ -34,6 +32,12 @@ interface AppModule {
     @Provides
     fun provideNotesDao(notesDatabase: NotesDatabase): NotesDao{
         return notesDatabase.getNotesDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRepository(notesDao: NotesDao): NotesRepository{
+        return NotesRepositoryImpl(notesDao)
     }
 
 

@@ -1,6 +1,6 @@
 package com.example.notescompose.notes_layers.domain.use_cases
 
-import com.example.notescompose.notes_layers.domain.models.NoteItem
+import com.example.notescompose.notes_layers.domain.models.Note
 import com.example.notescompose.notes_layers.domain.repository.NotesRepository
 import com.example.notescompose.notes_layers.domain.utils.NoteOrder
 import com.example.notescompose.notes_layers.domain.utils.OrderType
@@ -16,7 +16,7 @@ class GetNotesListUseCase @Inject constructor(
     private val repository: NotesRepository
 ) {
     operator fun invoke(noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending)
-    ): Flow<List<NoteItem>> {
+    ): Flow<List<Note>> {
         return repository.getNotesList().map { notes ->
             when(noteOrder.orderType){
                 is OrderType.Ascending -> {
